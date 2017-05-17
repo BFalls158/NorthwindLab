@@ -1,0 +1,74 @@
+1)
+SELECT * FROM Customers;
+
+2)
+SELECT country FROM Customers;
+
+3)
+SELECT * 
+FROM Customers
+WHERE customerid
+LIKE 'BL%';
+
+4)
+SELECT * 
+FROM Orders
+LIMIT 100;
+
+5)
+SELECT contactname
+FROM Customers
+WHERE postalcode='1010' OR postalcode='3012' OR postalcode='12209' OR postalcode='05023';  
+
+6)
+SELECT *
+FROM orders
+WHERE shipregion IS NOT null;
+
+7)
+SELECT *
+FROM orders
+ORDER BY shipcountry, shipcity
+
+8)
+INSERT INTO customers
+(customerid, companyname, contactname, contacttitle, address, city, region, postalcode, country, phone, fax)
+values(11234576231, 'Grand Circus', 'Grant Chirpus', 'Cheif Chirper', '12345 Woodword Ave', 'Detroit', 'null', '40814', 'US', '1234567', '1234567');
+
+
+9)
+UPDATE orders
+SET shipregion='EuroZone'
+WHERE shipcountry='France';
+
+10)
+DELETE FROM order_details
+WHERE quantity=1;
+
+11)
+SELECT AVG(quantity) AS "Average", MIN(quantity) AS "Minimum", MAX(quantity) AS "Maximum" FROM order_details;
+
+12)
+SELECT AVG(quantity) AS "Average", MIN(quantity) AS "Minimum", MAX(quantity) AS "Maximum" FROM order_details
+GROUP BY orderid;
+
+13)
+SELECT customerid
+FROM orders
+WHERE orderid=10290;
+
+14)
+SELECT *
+FROM customers
+LEFT JOIN orders ON customers.customerid = orders.customerid
+
+15)
+SELECT firstname
+FROM employees
+WHERE reportsto IS NULL;
+
+16)
+SELECT firstname
+FROM employees
+WHERE reportsto <> 0;
+
